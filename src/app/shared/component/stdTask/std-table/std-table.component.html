@@ -1,0 +1,40 @@
+
+
+<table class="table table-dark table-responsive mt-4" 
+*ngIf="stdArr.length > 0 ; else noStd">
+   <thead>
+    <tr>
+        <th>Sr No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Edit Std</th>
+        <th>Remove Std</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let std of stdArr ; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{std.fname}}</td>
+        <td>{{std.lname}}</td>
+        <td>{{std.email}}</td>
+        <td>{{std.contact}}</td>
+        <td>
+            <button class="btn-sm" mat-raised-button color="primary">
+                Edit
+            </button>
+        </td>
+        <td>
+            <button class="btn-sm" mat-raised-button color="warn" (click)="onStdRemove(std)">
+                Remove
+            </button>
+        </td>
+    </tr>
+   </tbody>
+</table>
+
+<ng-template #noStd>
+    <p class="alert alert-danger text-danger mt-4">
+         No Student Information addedd yet !!!</p>
+</ng-template>

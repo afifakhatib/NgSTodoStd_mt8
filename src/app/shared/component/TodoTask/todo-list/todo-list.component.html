@@ -1,0 +1,23 @@
+
+
+
+<mat-list *ngIf="todoArr.length > 0 ; else noTodo" class="mt-4 mb-md-0">
+    <mat-list-item class="w-100 bg-dark text-white"
+    *ngFor="let todo of todoArr">{{todo.todoitem}}
+        <span class="d-flex justify-content-end w-100">
+            <button class="btn-sm mr-2" mat-raised-button color="primary">
+                Edit
+            </button>
+            <button class="btn-sm mr-2" mat-raised-button color="warn" (click)="onTodoRemove(todo)">
+                Remove
+            </button>
+        </span>
+        <mat-divider class="bg-light"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #noTodo>
+    <p class="alert alert-danger mt-4">
+       No TodoItem is added yet!!!
+    </p>
+  </ng-template>

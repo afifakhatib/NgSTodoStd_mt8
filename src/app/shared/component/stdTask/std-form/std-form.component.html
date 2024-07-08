@@ -1,0 +1,82 @@
+
+
+<form #stdForm="ngForm" (ngSubmit)="onStdAdd()">
+    <mat-card>
+        <mat-card-header>
+            <h2 class="text-center">Student Task By Service</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill"  class="d-block">
+                    <mat-label>Enter First Name</mat-label>
+                    <input matInput placeholder="Ex. Jhon" required name="fname"
+                    #fname="ngModel" ngModel id="fname" pattern="[a-zA-Z]+">
+                  </mat-form-field>
+
+                  <ng-container>
+                    <p class="text-danger" *ngIf="fname.touched && fname.hasError('required')">
+                        fname is required field..
+                    </p>
+                    <p class="text-danger" *ngIf="fname.dirty && fname.hasError('pattern')">
+                       Invaild pattern
+                    </p>
+                  </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill"  class="d-block">
+                    <mat-label>Enter Last Name</mat-label>
+                    <input matInput placeholder="Ex. Doe" required name="lname"
+                    #lname="ngModel" ngModel id="lname" pattern="[a-zA-Z]+">
+                  </mat-form-field>
+
+                  <ng-container>
+                    <p class="text-danger" *ngIf="lname.touched && lname.hasError('required')">
+                        lname is required field..
+                    </p>
+                    <p class="text-danger" *ngIf="lname.dirty && lname.hasError('pattern')">
+                       Invaild pattern
+                    </p>
+                  </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill"  class="d-block">
+                    <mat-label>Enter Email</mat-label>
+                    <input matInput placeholder="Ex. Jhon" required name="email"
+                    #email="ngModel" ngModel id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  </mat-form-field>
+
+                  <ng-container>
+                    <p class="text-danger" *ngIf="email.touched && email.hasError('required')">
+                        email is required field..
+                    </p>
+                    <p class="text-danger" *ngIf="email.dirty && email.hasError('pattern')">
+                      Invaild pattern , Enter valid email pattern
+                    </p>
+                  </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill"  class="d-block">
+                    <mat-label>Enter Contact</mat-label>
+                    <input matInput placeholder="Ex. Jhon" required name="contact"
+                    #contact="ngModel" ngModel id="contact" pattern="[0-9]{10}" maxlength="10">
+                  </mat-form-field>
+
+                  <ng-container>
+                    <p class="text-danger" *ngIf="contact.touched && contact.hasError('required')">
+                        contact is required field..
+                    </p>
+                    <p class="text-danger" *ngIf="contact.dirty && contact.hasError('pattern')">
+                      contact only numbers..
+                    </p>
+                  </ng-container>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="btn-sm btn-block"
+             mat-raised-button color="accent" [disabled]="stdForm.invalid">Add Student</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

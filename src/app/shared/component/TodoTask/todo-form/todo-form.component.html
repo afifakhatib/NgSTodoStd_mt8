@@ -1,0 +1,25 @@
+
+<form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+    <mat-card>
+        <mat-card-header>
+            <h2 class="text-center text-capitalize">todo task by service</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field class="example-full-width" appearance="fill"  class="d-block">
+                <mat-label>Enter TodoItem</mat-label>
+                <input matInput placeholder="Ex. Angular 10" required name="todoitem"
+                #todoitem="ngModel" ngModel id="todoitem">
+              </mat-form-field>
+              
+              <ng-container *ngIf="todoitem.touched && todoitem.hasError('required')">
+                  <p class="text-danger alert alert-danger">
+                       TodoItem field is required..
+                  </p>
+              </ng-container>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="btn-sm btn-block" mat-raised-button color="accent" 
+            [disabled]="todoForm.invalid">Add TodoItem</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
